@@ -36,9 +36,10 @@ pipeline {
         
             stage("Test") {
                 steps {
-                    script {
-                        Dockershell = sh(script:'docker run -it --privileged nodeport 192.168.1.80 8080', returnStdout:true)
-                    }
+                    echo "test"
+                   // script {
+                      //  Dockershell = sh(script:'docker run -it --privileged nodeport 192.168.1.80 8080', returnStdout:true)
+                    //}
                 }
             }
         
