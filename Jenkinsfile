@@ -1,12 +1,13 @@
 pipeline {
-    
+    agent worker
     parameters {
        
         string(name: "agent", defaultValue: "ssbostan", trim: true, description: "Sample string parameter")
         string(name: "RepoURL", defaultValue: "ssbostan", trim: true, description: "Sample string parameter")
+        string(name: "node", defaultValue: "worker", trim: true, description: "Node to execute")
         
     }
-    agent ${agent}
+    
     stages {
         stage("Build") {
             steps {
