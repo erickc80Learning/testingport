@@ -21,6 +21,7 @@ pipeline {
             }
        
             stage("Build") {
+                steps{
                     node{
                         def app
                         steps {
@@ -29,6 +30,7 @@ pipeline {
                             
                         }
                     }
+                }
             }
         
             stage("Test") {
