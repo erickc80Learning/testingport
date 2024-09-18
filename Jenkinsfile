@@ -21,7 +21,7 @@ node {
          * docker build on the command line */
 
         //app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
-
+        dockerfile = "Dockerfile"
         app = docker.build("portnode:${env.BUILD_ID}", "-f ${dockerfile} ./dockerfiles")
 
     }
