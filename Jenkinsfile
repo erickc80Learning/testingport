@@ -5,21 +5,30 @@ pipeline {
        
         string(name: "agent", defaultValue: "worker", trim: true, description: "Sample string parameter")
         string(name: "RepoURL", defaultValue: "https://github.com/erickc80Learning/testingport.git", trim: true, description: "Sample string parameter")
-        string(name: "node", defaultValue: "worker", trim: true, description: "Node to execute")
+        string(name: "branch", defaultValue: "branch", trim: true, description: "branch")
         
     }
     
     
     stages {
+
+        stage('Clone repository') {
+                /* Let's make sure we have the repository cloned to our workspace */
+
+                checkout ${branch}
+            }
+
         stage("Build") {
             steps {
-                echo "Build stage."
+                app = docker.build("nodeport", " .")
                 
             }
         }
         stage("Test") {
             steps {
-                echo "Test stage."
+                app.inside {
+                    sh 'docker run -it --privileged nodeport 192.168.1.80 8080'
+                }
             }
         }
         stage("Release") {
