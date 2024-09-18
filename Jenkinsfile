@@ -24,9 +24,9 @@ pipeline {
        
             stage("Build") {
                 steps{
-                    
-                    app= docker.build("nodeport","-f dockerfile ./") 
-
+                    script{
+                        app= docker.build("nodeport","-f dockerfile ./") 
+                    }
                 }
             }
         
