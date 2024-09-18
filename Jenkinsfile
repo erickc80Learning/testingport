@@ -2,6 +2,14 @@ node {
 
     def app
 
+    parameters {
+       
+        string(name: "agent", defaultValue: "worker", trim: true, description: "Sample string parameter")
+        string(name: "RepoURL", defaultValue: "https://github.com/erickc80Learning/testingport.git", trim: true, description: "Sample string parameter")
+        string(name: "branch", defaultValue: "dev", trim: true, description: "branch")
+        
+    }
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -12,7 +20,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("nodeport")
+        app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
     }
 
     stage('Test image') {
