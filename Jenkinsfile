@@ -1,5 +1,7 @@
+def label_name = params.AgentLabel
+def app
 pipeline {
-    def app
+    
     agent any
 
     parameters {
@@ -23,12 +25,10 @@ pipeline {
             stage("Build") {
                 steps{
                     node{
-                        
-                        steps {
+
                             app= docker.build("nodeport",
                                         "-f dockerfile ./") 
-                            
-                        }
+   
                     }
                 }
             }
