@@ -1,5 +1,4 @@
 node {
-
     def app
 
     parameters {
@@ -20,28 +19,20 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        //app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
-        //dockerfile = "Dockerfile"
-        //app = docker.build("portnode", " -f ${dockerfile} ${env.WORKSPACE}/ ")
-        app = docker.build("portnode/latest")
-        //docker build -t portnode -f Dockerfile /var/jenkins/workspace/portmonitor/
+        app = docker.build("getintodevops/hellonode")
     }
 
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.*/
+    sstage('Test image') {
+        /* Ideally, we would run a test framework against our image.
+         * For this example, we're using a Volkswagen-type approach  */
         app.inside {
             sh 'echo "Tests passed"'
         }
     }
 
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-        
-    }
+    
 }
+
 
 
 
