@@ -27,7 +27,7 @@ pipeline {
                 steps{
                     echo "Current workspace is ${env.WORKSPACE}"
                     script {
-                        def customImage = docker.build("portnode", "-f Dockerfile","${env.WORKSPACE}/Dockerfile") 
+                        def customImage = docker.build("portnode", " -f Dockerfile ${env.WORKSPACE}/") 
                         customImage.push()
                     } 
 
