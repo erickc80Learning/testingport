@@ -27,7 +27,7 @@ pipeline {
                 steps{
 
                     script {
-                        def customImage = docker.build("portnode", "-f /var/jenkins/workspace/portmonitor/Dockerfile .") 
+                        def customImage = docker.build("portnode", "-f ./Dockerfile .") 
                         customImage.push()
                     } 
 
