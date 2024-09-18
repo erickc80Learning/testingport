@@ -19,7 +19,7 @@ node {
     stage('Build image') {
        
         dir('./project-app') {
-            app = docker.build("portnode", " -f ${env.WORKSPACE}/") 
+            app = docker.build("portnode") 
         }
     }
 
