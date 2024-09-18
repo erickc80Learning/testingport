@@ -19,14 +19,16 @@ pipeline {
                     checkout scm
                 }
             }
-        node{
-            def app
+       
             stage("Build") {
-                steps {
-                    app= docker.build("nodeport",
-                                   "-f dockerfile ./") 
-                    
-                }
+                    node{
+                        def app
+                        steps {
+                            app= docker.build("nodeport",
+                                        "-f dockerfile ./") 
+                            
+                        }
+                    }
             }
         
             stage("Test") {
@@ -36,7 +38,7 @@ pipeline {
                     }
                 }
             }
-        }
+        
         stage("Release") {
             steps {
                 echo "Release stage."
