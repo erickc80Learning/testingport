@@ -19,7 +19,7 @@ pipeline {
                 /* Let's make sure we have the repository cloned to our workspace */
                 steps{
                     checkout scm
-                    docker.build('portmonitor', './Dockerfile')
+                    docker.build('portmonitor', '-f ./Dockerfile .')
   
                 }
             }
