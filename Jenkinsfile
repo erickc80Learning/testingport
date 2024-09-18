@@ -1,4 +1,4 @@
-node {
+/*node {
     def app
 
     parameters {
@@ -10,23 +10,21 @@ node {
     }
 
     stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
+        
         dir('./project-app') {
             checkout scm
         }
     }
 
     stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
+       
         dir('./project-app') {
             app = docker.build("portnode", " -f ${env.WORKSPACE}/") 
         }
     }
 
     sstage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach  */
+        
         app.inside {
             sh 'echo "Tests passed"'
         }
@@ -34,14 +32,14 @@ node {
 
     
 }
+*/
 
 
 
 
 
 
-
-/*def label_name = params.AgentLabel
+/*def label_name = params.AgentLabel*/
 def app
 pipeline {
     
@@ -94,4 +92,3 @@ pipeline {
         }
     }
 }
-*/
