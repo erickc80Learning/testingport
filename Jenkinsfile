@@ -19,7 +19,7 @@ pipeline {
                 /* Let's make sure we have the repository cloned to our workspace */
                 steps{
                     checkout scm
-                     def HOME="${WORKSPACE}"
+                    
                 }
             }
        
@@ -27,7 +27,7 @@ pipeline {
                 steps{
 
                     script {
-                        def customImage = docker.build("test-image", ".${WORKSPACE}/Dockerfile") 
+                        def customImage = docker.build("portnode", "/var/jenkins/workspace/portmonitor/Dockerfile") 
                         customImage.push()
                     } 
 
