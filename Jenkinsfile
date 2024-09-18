@@ -21,8 +21,9 @@ node {
          * docker build on the command line */
 
         //app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
-        dockerfile = "Dockerfile"
-        app = docker.build("portnode", " -f ${dockerfile} ${env.WORKSPACE}/ ")
+        //dockerfile = "Dockerfile"
+        //app = docker.build("portnode", " -f ${dockerfile} ${env.WORKSPACE}/ ")
+        app = docker.build("portnode")
         //docker build -t portnode -f Dockerfile /var/jenkins/workspace/portmonitor/
     }
 
