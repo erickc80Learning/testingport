@@ -15,7 +15,7 @@ pipeline {
         stage('Clone repository') {
                 /* Let's make sure we have the repository cloned to our workspace */
                 steps{
-                    git checkout ${branch}
+                    git checkout scm
                 }
             }
 
