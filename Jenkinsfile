@@ -19,7 +19,7 @@ pipeline {
                 /* Let's make sure we have the repository cloned to our workspace */
                 steps{
                     checkout scm
-                     HOME="${WORKSPACE}"
+                     def HOME="${WORKSPACE}"
                 }
             }
        
