@@ -22,7 +22,7 @@ node {
 
         //app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
         dockerfile = "Dockerfile"
-        app = docker.build("portnode:${env.BUILD_ID} -t", " -f ${dockerfile} ${env.WORKSPACE}/")
+        app = docker.build("portnode:${env.BUILD_ID}", " -f ${dockerfile} ${env.WORKSPACE}/")
         //docker build -t portnode -f Dockerfile /var/jenkins/workspace/portmonitor/
     }
 
