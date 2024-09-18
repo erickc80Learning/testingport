@@ -1,6 +1,5 @@
 pipeline {
-    def app
-
+ 
     agent any
 
     parameters {
