@@ -1,5 +1,5 @@
 pipeline {
- 
+    def app
     agent any
 
     parameters {
@@ -23,7 +23,7 @@ pipeline {
             stage("Build") {
                 steps{
                     node{
-                        def app
+                        
                         steps {
                             app= docker.build("nodeport",
                                         "-f dockerfile ./") 
