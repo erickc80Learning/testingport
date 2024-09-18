@@ -22,7 +22,7 @@ node {
 
         //app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
         dockerfile = "Dockerfile"
-        app = docker.build("portnode:${env.BUILD_ID}", "-f ${dockerfile} ./dockerfiles")
+        app = docker.build("portnode:${env.BUILD_ID}", "-f ${dockerfile} ./${env.WORKSPACE}/dockerfiles")
 
     }
 
