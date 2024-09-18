@@ -34,8 +34,8 @@ pipeline {
         
             stage("Test") {
                 steps {
-                    app.inside {
-                        sh 'docker run -it --privileged nodeport 192.168.1.80 8080'
+                    script {
+                        Dockershell = sh(script:'docker run -it --privileged nodeport 192.168.1.80 8080', returnStdout:true)
                     }
                 }
             }
