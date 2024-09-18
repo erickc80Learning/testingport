@@ -1,4 +1,4 @@
-/*node {
+node {
     def app
 
     parameters {
@@ -32,7 +32,7 @@
 
     
 }
-*/
+
 
 
 
@@ -40,6 +40,7 @@
 
 
 /*def label_name = params.AgentLabel*/
+/* 
 def app
 pipeline {
     
@@ -92,3 +93,4 @@ pipeline {
         }
     }
 }
+*/
