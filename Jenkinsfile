@@ -1,5 +1,6 @@
 pipeline {
-    
+    agent any
+
     parameters {
        
         string(name: "agent", defaultValue: "ssbostan", trim: true, description: "Sample string parameter")
@@ -8,7 +9,7 @@ pipeline {
         
     }
     
-    agent ${node}
+    
     stages {
         stage("Build") {
             steps {
