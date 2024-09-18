@@ -24,11 +24,13 @@ pipeline {
        
             stage("Build") {
                 steps{
-                    script{
-                        Dockershell = sh(
-                            script:"docker build -t nodeport .",returnStdout:true
-                        ) 
-                    }
+
+                    script {
+                        def customImage = docker.build("my-image:${env.BUILD_ID}")
+                        customImage.push()
+                    } 
+
+                    
                 }
             }
         
