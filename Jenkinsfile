@@ -19,6 +19,7 @@ pipeline {
                 /* Let's make sure we have the repository cloned to our workspace */
                 steps{
                     checkout scm
+                     HOME="${WORKSPACE}"
                 }
             }
        
@@ -26,7 +27,7 @@ pipeline {
                 steps{
 
                     script {
-                        def customImage = docker.build("nodeport:${env.BUILD_ID}")
+                        def customImage = docker.build("test-image", ".${WORKSPACE}/Dockerfile") 
                         customImage.push()
                     } 
 
