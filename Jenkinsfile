@@ -14,13 +14,14 @@ pipeline {
 
         stage('Clone repository') {
                 /* Let's make sure we have the repository cloned to our workspace */
-
-                git checkout ${branch}
+                steps{
+                    git checkout ${branch}
+                }
             }
 
         stage("Build") {
             steps {
-                docker.build("nodeport", " .")
+                app= docker.build("./Dockerfile")
                 
             }
         }
