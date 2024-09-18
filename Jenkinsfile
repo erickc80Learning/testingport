@@ -1,5 +1,6 @@
-node {
+pipeline {
     def app
+
     agent any
 
     parameters {
@@ -19,17 +20,21 @@ node {
                     checkout scm
                 }
             }
-
-        stage("Build") {
-            steps {
-                app= docker.build("./Dockerfile")
-                
+        node{
+            def app
+            stage("Build") {
+                steps {
+                    app= docker.build("nodeport",
+                                   "-f dockerfile ./") 
+                    
+                }
             }
-        }
-        stage("Test") {
-            steps {
-                app.inside {
-                    sh 'docker run -it --privileged nodeport 192.168.1.80 8080'
+        
+            stage("Test") {
+                steps {
+                    app.inside {
+                        sh 'docker run -it --privileged nodeport 192.168.1.80 8080'
+                    }
                 }
             }
         }
