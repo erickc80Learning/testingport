@@ -3,8 +3,8 @@ pipeline {
 
     parameters {
        
-        string(name: "agent", defaultValue: "ssbostan", trim: true, description: "Sample string parameter")
-        string(name: "RepoURL", defaultValue: "ssbostan", trim: true, description: "Sample string parameter")
+        string(name: "agent", defaultValue: "worker", trim: true, description: "Sample string parameter")
+        string(name: "RepoURL", defaultValue: "https://github.com/erickc80Learning/testingport.git", trim: true, description: "Sample string parameter")
         string(name: "node", defaultValue: "worker", trim: true, description: "Node to execute")
         
     }
