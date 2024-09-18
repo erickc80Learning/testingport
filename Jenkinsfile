@@ -20,7 +20,10 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
+        //app = docker.build("portnode", " -f ${env.WORKSPACE}/ .") 
+
+        app = docker.build("portnode:${env.BUILD_ID}", "-f ${dockerfile} ./dockerfiles")
+
     }
 
     stage('Test image') {
