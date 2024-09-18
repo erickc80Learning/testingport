@@ -20,7 +20,7 @@ pipeline {
 
         stage("Build") {
             steps {
-                app = docker.build("nodeport", " .")
+                docker.build("nodeport", " .")
                 
             }
         }
