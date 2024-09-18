@@ -5,7 +5,7 @@ pipeline {
        
         string(name: "agent", defaultValue: "worker", trim: true, description: "Sample string parameter")
         string(name: "RepoURL", defaultValue: "https://github.com/erickc80Learning/testingport.git", trim: true, description: "Sample string parameter")
-        string(name: "branch", defaultValue: "branch", trim: true, description: "branch")
+        string(name: "branch", defaultValue: "dev", trim: true, description: "branch")
         
     }
     
@@ -15,7 +15,7 @@ pipeline {
         stage('Clone repository') {
                 /* Let's make sure we have the repository cloned to our workspace */
 
-                checkout ${branch}
+                git checkout ${branch}
             }
 
         stage("Build") {
