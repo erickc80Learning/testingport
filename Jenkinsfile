@@ -27,9 +27,11 @@ pipeline {
         } 
 
         stage('Clone repository') {
-            //dir('./project-app') {
+            steps{
+            dir('./project-app') {
                 checkout scm
-           // }
+             }
+            }
         }
             
     }
