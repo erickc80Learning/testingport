@@ -1,8 +1,6 @@
 def label_name = param.AgentLabel
 pipeline{
-    agent{
-        label_name = "worker"
-    }
+    agent{label = label_name}
 
     parameters {
        
@@ -14,7 +12,7 @@ pipeline{
     }
     environment{
         WSPath="${Workspace}"
-        BUILD_NUM_ENV= currentBuild.getNumber(0)
+        BUILD_NUM_ENV= currentBuild.getNumber()
     }
 
     stages{
@@ -27,9 +25,9 @@ pipeline{
         } 
 
         stage('Clone repository') {
-            dir('./project-app') {
+            //dir('./project-app') {
                 checkout scm
-            }
+           // }
         }
             
     }
