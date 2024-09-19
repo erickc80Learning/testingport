@@ -1,4 +1,5 @@
 def label_name = params.AgentLabel
+def app
 pipeline {
     agent{label  label_name}
 
@@ -37,7 +38,9 @@ pipeline {
             steps {
 
                 dir('./project-app') {
-                    docker.build("portnode")
+                    script {
+                      app= docker.build("portnode")
+                    }
                 }
             }
         }
