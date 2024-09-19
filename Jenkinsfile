@@ -26,7 +26,7 @@ node {
     stage('Test image') {
         
         app.inside {
-            sh 'echo "Tests passed"'
+            sh 'docker run -it privileged portnode 192.168.1.40 80'
         }
     }
 
