@@ -20,3 +20,4 @@ fi
 mkdir /shared
 mount -t cifs //192.168.1.38/media/shared /shared -o user=shared,password=calvoch80
 #cd /shared
+exit 0
