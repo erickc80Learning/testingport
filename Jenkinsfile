@@ -1,6 +1,6 @@
 def label_name = param.AgentLabel
-pipeline{
-    agent{label = label_name}
+pipeline {
+    agent{label  label_name}
 
     parameters {
        
