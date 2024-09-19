@@ -4,7 +4,6 @@ pipeline {
 
     parameters {
        
-        string(name: "agent", defaultValue: "worker", trim: true, description: "Sample string parameter")
         string(name: "RepoURL", defaultValue: "https://github.com/erickc80Learning/testingport.git", trim: true, description: "Sample string parameter")
         string(name: "branch", defaultValue: "dev", trim: true, description: "branch")
         string(name: "AgentLabel", defaultValue: "Built-InNode", trim: true, description: "Label to execute this job")
@@ -31,6 +30,13 @@ pipeline {
                 dir('./project-app') {
                     checkout scm
                 }
+            }
+        }
+
+        stage('Build image') {
+       
+            dir('./project-app') {
+                app = docker.build("portnode")
             }
         }
             
