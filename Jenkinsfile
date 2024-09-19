@@ -28,9 +28,9 @@ pipeline {
 
         stage('Clone repository') {
             steps{
-            dir('./project-app') {
+            //dir('./project-app') {
                 checkout scm
-             }
+             //}
             }
         }
             
