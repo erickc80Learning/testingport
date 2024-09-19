@@ -15,8 +15,10 @@ pipeline{
         BUILD_NUM_ENV= currentBuild.getNumber()
     }
 
-    stages{
-        stage("Update Build Name"){
+   stages {
+
+        stage('Update Build number') {
+
             steps{
                 script{
                     currentBuild.displayName = "#"+BUILD_NUM_ENV+"-"+label_name
