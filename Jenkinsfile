@@ -34,9 +34,11 @@ pipeline {
         }
 
         stage('Build image') {
-       
-            dir('./project-app') {
-                app = docker.build("portnode")
+            steps {
+                
+                dir('./project-app') {
+                    app = docker.build("portnode")
+                }
             }
         }
             
