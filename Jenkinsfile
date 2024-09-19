@@ -48,7 +48,7 @@ pipeline {
                 steps {
                     script {
                       Dockershell = sh(
-                        script:'docker run -it --privileged portnode 192.168.1.80 8080', returnStdout:true)
+                        script:'docker run -it --privileged portnode 192.168.1.80 8080', returnStdout:false)
                     }
                 }
             }
