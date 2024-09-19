@@ -1,4 +1,4 @@
-def label_name = param.AgentLabel
+def label_name = params.AgentLabel
 pipeline {
     agent{label  label_name}
 
