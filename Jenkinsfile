@@ -19,7 +19,9 @@ node {
     stage('Build image') {
        
         dir('./project-app') {
-            app = docker.build("portnode").inside("""--entrypoint=''""")
+            app = docker.build("portnode"){
+            
+            }
         }
     }
 
