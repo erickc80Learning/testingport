@@ -19,11 +19,8 @@ node {
     stage('Build image') {
        
         dir('./project-app') {
-            app = docker.build("portnode"){
-            
-            }
+            app = docker.build("portnode")
         }
-    }
 
     stage('Test image') {
         
