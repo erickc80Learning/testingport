@@ -1,3 +1,49 @@
+def label_name = param.AgentLabel
+pipeline{
+    agent{
+        label_name = "worker"
+    }
+
+    parameters {
+       
+        string(name: "agent", defaultValue: "worker", trim: true, description: "Sample string parameter")
+        string(name: "RepoURL", defaultValue: "https://github.com/erickc80Learning/testingport.git", trim: true, description: "Sample string parameter")
+        string(name: "branch", defaultValue: "dev", trim: true, description: "branch")
+        string(name: "AgentLabel", defaultValue: "Built-InNode", trim: true, description: "Label to execute this job")
+         
+    }
+    environment{
+        WSPath="${Workspace}"
+        BUILD_NUM_ENV= currentBuild.getNumber(0)
+    }
+
+    stages{
+        stage("Update Build Name"){
+            steps{
+                script{
+                    currentBuild.displayName = "#"+BUILD_NUM_ENV+"-"+label_name
+                }
+            }
+        } 
+
+        stage('Clone repository') {
+            dir('./project-app') {
+                checkout scm
+            }
+        }
+            
+    }
+   
+}
+
+
+
+
+
+
+/* 
+
+
 node {
     def app
 
@@ -34,7 +80,7 @@ node {
 }
 
 
-
+*/
 
 
 
