@@ -21,6 +21,7 @@ node {
         dir('./project-app') {
             app = docker.build("portnode")
         }
+    }
 
     stage('Test image') {
         
