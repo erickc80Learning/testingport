@@ -7,7 +7,7 @@ pipeline {
        
         string(name: "RepoURL", defaultValue: "https://github.com/erickc80Learning/testingport.git", trim: true, description: "Sample string parameter")
         string(name: "branch", defaultValue: "dev", trim: true, description: "branch")
-        string(name: "AgentLabel", defaultValue: "Built-InNode", trim: true, description: "Label to execute this job")
+        string(name: "AgentLabel", defaultValue: "worker", trim: true, description: "Label to execute this job")
          
     }
     environment{
@@ -36,7 +36,6 @@ pipeline {
 
         stage('Build image') {
             steps {
-
                 dir('./project-app') {
                     script {
                       app= docker.build("portnode")
